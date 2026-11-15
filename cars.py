@@ -152,3 +152,33 @@ def filterByPrice():
 
     except ValueError as e:
         print("Error:", e)
+
+def filterByYear():
+    try:
+        if not cars:
+            raise ValueError("there is no car.")
+
+        choice = getInt(
+            "1. Newest to oldest\n"
+            "2. Oldest to newest\n"
+            "Choose: "
+        )
+
+        if choice == 1:
+            sortedCars = sorted(
+                cars, key=lambda c: c["year"], reverse=True
+            )
+
+        elif choice == 2:
+            sortedCars = sorted(
+                cars, key=lambda c: c["year"]
+            )
+
+        else:
+            raise ValueError("wrong choice")
+
+        for car in sortedCars:
+            showCar(car)
+
+    except ValueError as e:
+        print("Error:", e)
