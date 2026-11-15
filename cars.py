@@ -122,3 +122,33 @@ def deleteCar():
 
     except ValueError as e:
         print("Error:", e)
+
+def filterByPrice():
+    try:
+        if not cars:
+            raise ValueError("there is no car.")
+
+        choice = getInt(
+            "1. Expensive to cheap\n"
+            "2. Cheap to expensive\n"
+            "Choose: "
+        )
+
+        if choice == 1:
+            sortedCars = sorted(
+                cars, key=lambda c: c["price"], reverse=True
+            )
+
+        elif choice == 2:
+            sortedCars = sorted(
+                cars, key=lambda c: c["price"]
+            )
+
+        else:
+            raise ValueError("wrong choice")
+
+        for car in sortedCars:
+            showCar(car)
+
+    except ValueError as e:
+        print("Error:", e)
