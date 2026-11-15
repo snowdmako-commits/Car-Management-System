@@ -182,3 +182,29 @@ def filterByYear():
 
     except ValueError as e:
         print("Error:", e)
+
+def filterCars():
+    while True:
+        try:
+            print("""
+            1. Filter by Price
+            2. Filter by Year
+            3. Back
+            """)
+
+            choice = getInt("enter choice: ")
+
+            if choice == 1:
+                filterByPrice()
+
+            elif choice == 2:
+                filterByYear()
+
+            elif choice == 3:
+                break
+
+            else:
+                raise ValueError("wrong choice")
+
+        except ValueError as e:
+            print("Error:", e)
