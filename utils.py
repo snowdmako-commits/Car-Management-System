@@ -23,3 +23,16 @@ def getFloat(message):
 
         except ValueError:
             print("error, please enter float value.")
+
+def getText(message):
+    while True:
+        try:
+            value = input(message).strip()
+
+            if value:
+                return value
+            else:
+                raise ValueError
+
+        except ValueError:
+            print("field cannot be empty")
