@@ -45,3 +45,15 @@ def showCar(car):
 
     except (KeyError, TypeError) as e:
         print("car data error:", e)
+
+def showAllCars():
+    try:
+        if not cars:
+            print("there is no car.")
+            return
+
+        for car in cars:
+            showCar(car)
+
+    except Exception as e:
+        print("Error:", e)
