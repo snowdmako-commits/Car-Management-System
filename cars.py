@@ -31,3 +31,17 @@ def addCar():
 
     except ValueError as e:
         print("some error occurred:", e)
+
+def showCar(car):
+    try:
+        print("-" * 20)
+        print(f"ID: {car['id']}")
+        print(f"Brand: {car['brand']}")
+        print(f"Model: {car['model']}")
+        print(f"Price: {car['price']}")
+        print(f"Year: {car['year']}")
+        print(f"Color: {car['color']}")
+        print("-" * 20)
+
+    except (KeyError, TypeError) as e:
+        print("car data error:", e)
