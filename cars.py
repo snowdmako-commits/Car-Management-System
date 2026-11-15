@@ -57,3 +57,49 @@ def showAllCars():
 
     except Exception as e:
         print("Error:", e)
+
+def updateCar():
+    try:
+        if not cars:
+            print("there is no car.")
+            return
+
+        carID = getInt("enter car ID: ")
+
+        car = None
+
+        for i in cars:
+            if i["id"] == carID:
+                car = i
+                break
+
+        if car is None:
+            raise ValueError("car not found")
+
+        showCar(car)
+
+        print("""
+        1. Price
+        2. Color
+        """)
+
+        choice = getInt("enter choice: ")
+
+        if choice == 1:
+            newPrice = getFloat("enter new price: ")
+
+            if newPrice <= 0:
+                raise ValueError("price is not correct")
+
+            car["price"] = newPrice
+
+        elif choice == 2:
+            car["color"] = getText("enter new color: ")
+
+        else:
+            raise ValueError("wrong choice")
+
+        print("car updated.")
+
+    except ValueError as e:
+        print("Error:", e)
