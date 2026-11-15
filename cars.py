@@ -103,3 +103,22 @@ def updateCar():
 
     except ValueError as e:
         print("Error:", e)
+
+def deleteCar():
+    try:
+        if not cars:
+            print("there is no car.")
+            return
+
+        deletedID = getInt("enter car ID: ")
+
+        for car in cars:
+            if car["id"] == deletedID:
+                cars.remove(car)
+                print("car deleted.")
+                return
+
+        raise ValueError("car not found")
+
+    except ValueError as e:
+        print("Error:", e)
